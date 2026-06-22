@@ -1,4 +1,5 @@
 from models.medication import Medication
+from utils.validators import validate_medication_name
 import requests
 
 class FDAClient:
@@ -6,6 +7,9 @@ class FDAClient:
         self.base_url = "https://api.fda.gov/drug/label.json"
 
     def fetch_drug_info(self, drug_name):
+
+        if not validate_medication_name(drug_name):
+            return None
         
         params = {
             "search": f"openfda.generic_name:{drug_name}", 
@@ -18,6 +22,9 @@ class FDAClient:
             response.raise_for_status()
 
             data = response.json()
+
+            if not data.get("results"):
+                return None
 
             return self.create_medication(data)
         
