@@ -1,3 +1,4 @@
+from models.medication import Medication
 import requests
 
 class FDAClient:
@@ -18,6 +19,20 @@ class FDAClient:
 
             data = response.json()
 
-            return data
+            return self.create_medication(data)
+        
         except requests.exceptions.RequestException:
             return None
+        
+    def create_medication(self, data):
+        result = data["results"][0]
+
+        name = result["openfda"]["generic_name"][0]
+        usage = result.get("indications_and_usage", ["Not available"])[0]
+        warnings = result.get("warnings", ["Not available"])[0]
+        side_effects = result.get("adverse_reactions", ["Not available"])[0]
+        instructions = result.get("dosage_and_administration", ["Not available"])[0]
+
+        medication = Medication(name, usage, warnings, side_effects, instructions)
+
+        return medication
