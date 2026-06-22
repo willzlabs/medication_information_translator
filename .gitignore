@@ -1,0 +1,214 @@
+# ============================================
+# Official GitHub Python .gitignore template
+# Source: https://github.com/github/gitignore/blob/main/Python.gitignore
+# ============================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+*.lcov
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+# .python-version
+
+# pdm
+.pdm-python
+.pdm-build/
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule*
+celerybeat.pid
+
+# Redis
+*.rdb
+*.aof
+*.pid
+
+# Environments
+.env
+.envrc
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Temporary file for partial code execution
+tempCodeRunnerFile.py
+
+# Ruff stuff:
+.ruff_cache/
+
+# PyPI configuration file
+.pypirc
+
+# Streamlit
+.streamlit/secrets.toml
+
+# ============================================
+# Extra additions (security + OS — not in
+# GitHub's language template by default)
+# ============================================
+
+# Secrets / credentials
+*.pem
+*.key
+
+# Common risky JSON filenames (specific platforms/tools)
+secrets.json
+credentials.json
+credential.json
+client_secret.json
+client_secrets.json
+service_account.json
+service-account.json
+firebase_config.json
+firebase-config.json
+google_credentials.json
+gcp_credentials.json
+aws_credentials.json
+token.json
+tokens.json
+.netrc
+
+# Catch-all pattern: any JSON file with these words anywhere
+# in the filename, regardless of platform (the real safety net)
+*secret*.json
+*credential*.json
+*password*.json
+*apikey*.json
+*api_key*.json
+
+# Same idea for .txt files (requirements.txt etc. stay tracked —
+# only specifically risky-named .txt files are ignored)
+*secret*.txt
+*credential*.txt
+*password*.txt
+*apikey*.txt
+*api_key*.txt
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Data files (ignored by default since these are often large/
+# regenerable; if a specific file should actually be tracked,
+# force-add it with: git add -f filename.csv)
+*.csv
+*.parquet
+*.xlsx
+*.sqlite
+*.db
+data/
