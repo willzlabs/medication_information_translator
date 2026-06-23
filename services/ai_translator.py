@@ -55,7 +55,10 @@ Medical information:
 
             try:
                 response = self.client.models.generate_content(
-                    model="gemini-2.5-flash", 
+                    model="gemini-2.5-flash-lite", 
+                    # model="gemini-2.5-flash", 
+                    # model="gemini-1.5-flash", 
+                    # model="gemini-2.5-pro", 
                     contents=prompt)
                 
                 if response.text:
@@ -65,6 +68,6 @@ Medical information:
 
             except Exception as e:
                 print(f"Attempt {attempt + 1} failed:", e)
-                time.sleep(3)
+                time.sleep(10)
 
         return "AI service is temporarily unavailable. Please try again in few minutes time."

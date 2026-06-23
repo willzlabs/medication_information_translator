@@ -97,7 +97,7 @@ def open_history():
     clear_btn.bind("<Leave>", clear_leave)
 
 window = tk.Tk()
-window.title("Medication Information Checker")
+window.title("Medication Information Translator")
 window.geometry("1000x700")
 window.configure(bg="#121212")
 
@@ -106,7 +106,7 @@ main_frame.pack(expand=True)
 
 tk.Label(
     main_frame,
-    text="💊 Medication Information Checker",
+    text="💊 Medication Information Translator",
     font=("Arial", 18, "bold"),
     fg="white",
     bg="#121212"
