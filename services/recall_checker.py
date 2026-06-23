@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 class RecallChecker:
     def __init__(self):
@@ -20,15 +21,28 @@ class RecallChecker:
                 product = record.get("product_description", "")
 
                 if drug_name.lower() in product.lower():
+
+                    raw_date = record.get("recall_initiation_date", "Unknown")
+                    formatted_date = self.format_date(raw_date)
+
                     return {
                         "recall_found": True, 
                         "product": product, 
                         "reason": record.get("reason_for_recall", "Not specified"), 
-                        "status": record.get("status", "Unkown"), 
-                        "date": record.get("recall_initiation_date", "Unknown")
+                        "status": record.get("status", "Unknown"), 
+                        "date": formatted_date
                     }
                 
             return None
         
         except requests.exceptions.RequestException:
             return None
+        
+    def format_date(self, date):
+        try:
+            return datetime.strptime(
+                date,
+                "%Y%m%d"
+            ).strftime("%d %B %Y")
+        except:
+            return date

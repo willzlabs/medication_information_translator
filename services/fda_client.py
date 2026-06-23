@@ -32,6 +32,7 @@ class FDAClient:
             return None
         
     def create_medication(self, data):
+        
         result = data["results"][0]
 
         name = result["openfda"]["generic_name"][0]
