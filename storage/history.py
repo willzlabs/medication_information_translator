@@ -17,8 +17,11 @@ class SearchHistory:
 
         if os.path.exists(self.file):
 
-            with open(self.file, "r") as f:
-                history = json.load(f)
+            try:
+                with open(self.file, "r") as f:
+                    history = json.load(f)
+            except json.JSONDecodeError:
+                history = []
 
         else:
             
@@ -34,8 +37,11 @@ class SearchHistory:
         if not os.path.exists(self.file):
             return []
 
-        with open(self.file, "r") as f:
-            return json.load(f)
+        try:
+            with open(self.file, "r") as f:
+                return json.load(f)
+        except json.JSONDecodeError:
+            return []
         
     def clear_history(self):
 
