@@ -5,6 +5,7 @@ from datetime import datetime
 class SearchHistory:
     def __init__(self):
         self.file = "data/history.json"
+        os.makedirs("data", exist_ok=True)  # Create data/ if it doesn't exist
 
     def save_search(self, medication, summary):
 
